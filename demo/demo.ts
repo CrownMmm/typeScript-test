@@ -8,7 +8,7 @@
 //   y: 4,
 // };
 
-const counter ;
-counter.
+// const counter;
+// counter;
 
-
+// console.log("111");
