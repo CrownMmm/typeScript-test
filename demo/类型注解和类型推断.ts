@@ -17,3 +17,8 @@ function getTotal(firstNumber, secondNumber) {
 }
 
 const total = getTotal(1, 2);
+
+const obj = {
+  name: 'dell',
+  age: 18,
+};
