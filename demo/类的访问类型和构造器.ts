@@ -23,11 +23,28 @@
 // father.sayHi();
 
 // constructor
+// class Person3 {
+//   // 传统写法
+//   // public name: string;
+//   // constructor(public name: string) {
+//   // this.name = name;
+//   // }
+//   // 简化写法
+//   constructor(public name: string) {
+
+//   }
+// }
+// const person3 = new Person3('ming');
+// console.log(person3.name);
+
 class Person3 {
-  // public name: string;
-  constructor(public name: string) {
-    // this.name = name;
+  constructor(public name: string) {}
+}
+class Person33 extends Person3 {
+  constructor(public age: number) {
+    super('ming');
   }
 }
-const person3 = new Person3('ming');
-console.log(person3.name);
+
+const person33 = new Person33(28);
+console.log(person33.age, person33.name);
