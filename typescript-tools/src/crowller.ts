@@ -1,18 +1,37 @@
+import fs from 'fs';
+import path from 'path';
 import superagent from 'superagent';
-//  ts -> js 会报错 需要用.d.ts 翻译   活着安装 @types/superagent
+import DellAnalyzer from './dellAnalyzer';
+
+export interface Analyzer {
+  analyze: (html: string, filePath: string) => string;
+}
 
 class Crowller {
-  private secret = 'x3b174jsx';
-  private url = `http://www.dell-lee.com/typescript/demo.html?secret=${this.secret}`;
-  private rawHtml = '';
-  async getRawHtml() {
+  private filePath = path.resolve(__dirname, '../data/course.json');
+
+  private async getRawHtml() {
     const result = await superagent.get(this.url);
-    this.rawHtml = result.text;
-    // console.log(result.text);
+    return result.text;
   }
-  constructor() {
-    this.getRawHtml();
+
+  private writeFile(content: string) {
+    fs.writeFileSync(this.filePath, content);
+  }
+
+  private async initSpiderProcess() {
+    const html = await this.getRawHtml();
+    const fileContent = this.analyzer.analyze(html, this.filePath);
+    this.writeFile(fileContent);
+  }
+
+  constructor(private url: string, private analyzer: Analyzer) {
+    this.initSpiderProcess();
   }
 }
 
-const crowller = new Crowller();
+const secret = 'x3b174jsx';
+const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`;
+
+const analyzer = DellAnalyzer.getInstance();
+new Crowller(url, analyzer);
