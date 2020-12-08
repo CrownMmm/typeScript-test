@@ -15,8 +15,8 @@
     // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
-    // "outFile": "./",                       /* Concatenate and emit output to single file. */
-    "outDir": "./build",                      /* 指定生成文件地址 */
+    // "outFile": "./",                       /* 把所有输出文件生成到一个文件中去 */
+    "outDir": "./dist",                      /* 指定生成文件地址 */
     "rootDir": "./src",                       /* 指定输入文件的地址 */
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
